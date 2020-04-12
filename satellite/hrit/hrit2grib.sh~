@@ -1,0 +1,1000 @@
+   47  pio device monitor
+   48  emacs src/freertos_sensordriver.ino 
+   49  bg
+   50  platformio run   -e nucleo_l432kc -t upload
+   51  pio device monitor
+   52  platformio run   -e nucleo_l432kc -t upload
+   53  pio device monitor
+   54  platformio run   -e nucleo_l432kc -t upload
+   55  pio device monitor
+   56  platformio run   -e nucleo_l432kc -t upload
+   57  pio device monitor
+   58  platformio run   -e nucleo_l432kc -t upload
+   59  pio device monitor
+   60  platformio run   -e nucleo_l432kc -t upload
+   61  pio device monitor
+   62  platformio run   -e nucleo_l432kc -t upload
+   63  pio device monitor
+   64  platformio run   -e nucleo_l432kc -t upload
+   65  pio device monitor
+   66  platformio run   -e nucleo_l432kc -t upload
+   67  pio device monitor
+   68  platformio run   -e nucleo_l432kc -t upload
+   69  pio device monitor
+   70  platformio run   -e nucleo_l432kc -t upload
+   71  pio device monitor
+   72  platformio run   -e nucleo_l432kc 
+   73  emacs src/freertos_sensordriver.ino 
+   74  bg
+   75  platformio run   -e nucleo_l432kc 
+   76  pio device monitor
+   77  platformio run   -e nucleo_l432kc 
+   78  pio device monitor
+   79  platformio run   -e nucleo_l432kc 
+   80  platformio run   -e nucleo_l432kc -t upload
+   81  pio device monitor
+   82  platformio run   -e nucleo_l432kc -t upload
+   83  pio device monitor
+   84  platformio run   -e nucleo_l432kc -t upload
+   85  pio device monitor
+   86  emacs src/freertos_sensordriver.ino 
+   87  platformio run   -e nucleo_l432kc -t upload
+   88  emacs src/freertos_sensordriver.ino 
+   89  bg
+   90  platformio run   -e nucleo_l432kc -t upload
+   91  pio device monitor
+   92  cd ..
+   93  git status .
+   94  meld .
+   95  git add multispeed_i2cscanner/ sensordriver/ freertos_logging/src/freertos_logging.ino freertos_sensordriver/platformio.ini freertos_sensordriver/src/freertos_sensordriver.ino
+   96  cd ..
+   97  cd arduino/sketchbook/libraries/
+   98  git status .
+   99  git add frtosSensorDriverb/src/frtosSensorDriverb.cpp frtosSensorDriverb/src/frtosSensorDriverb.h hpm/src/hpm.cpp hpm/src/hpm.h
+  100  git commit -m "various for platformio and sensordriver"
+  101  git push
+  102  picocom -b 115200 /dev/ttyUSB0 
+  103  picocom -b 115200 /dev/ttyACM0 
+  104  cd
+  105  cd git
+  106  cd rmap
+  107  cd platformio/test/freertos_sensordriver/
+  108  pio device monitor
+  109  . ~/.platformio/penv/bin/activate
+  110  pio device monitor
+  111  sudo bash
+  112  cd
+  113  cd dati
+  114  cd tmp
+  115  cd lavoro/
+  116  ls
+  117  cd radar
+  118  ls
+  119  mkdir dati
+  120  cd dati/
+  121  scp admin@bisognodipace.org:/tmp/*.nc .
+  122  ls -lrt
+  123  cd ..
+  124  mkdir grib
+  125  ls
+  126  cd netcdf2grib/
+  127  ls
+  128  less README 
+  129  cd ..
+  130  ./netcdf2grib/netcdf2grib1_cum dati/comp-ACRR_202003261200_001H.nc 
+  131  ls -lrt
+  132  rm radar_SRT_202003261200_1h.grib1 
+  133  for file in dati/*; do ./netcdf2grib/netcdf2grib1_cum $file; done
+  134  ls
+  135  mv *.grib1 grib/
+  136  ls
+  137  metview
+  138  rm -rf /tmp/mv.4793.pat1
+  139  cd ..
+  140  ls
+  141  cd satellite/
+  142  ls
+  143  cd autofs/satdata/20200224/
+  144  ls
+  145  msat -c MsatGRIB   --area="5056,2000,448,2000" H-000-MSG4__-MSG4________-IR_087___-000008___-202002240515-C_ 
+  146  msat -c MsatGRIB   --area="5056,2000,448,2000" H:MSG3:IR_039:202002240515
+  147  msat -c MsatGRIB   --area="5056,2000,448,2000" H:MSG3:IR_087:202002240515
+  148  msat -c MsatGRIB   --area="5056,2000,448,2000" H:MSG4:IR_087:202002240515
+  149  msat -c MsatGRIB   H:MSG4:IR_087:202002240515
+  150  ls
+  151  msat -c MsatGRIB   H:MSG4:WV_073:202002240515
+  152  msat -c MsatGRIB   H:MSG4:WV_073:202002240045
+  153  msat -c MsatGRIB   H:MSG4:WV_073:202002240600
+  154  msat -c MsatGRIB   H:MSG4:WV_062:202002240600
+  155  msat -c MsatGRIB   H:MSG4:IR_087:202002240515
+  156  msat --view   H:MSG4:IR_087:202002240515
+  157  msat --display   H:MSG4:IR_087:202002240515
+  158  msat --display   H:MSG4:IR_087:202002240600
+  159  msat --display   H:MSG4:IR_087:202002240300
+  160  msat --display   H:MSG4:IR_087:202002240100
+  161  msat -c MsatGRIB   --area="5056,2000,448,2000" H:MSG4:IR_039:202002240100
+  162  msat -c png H:MSG4:IR_039:202002240100
+  163  msat -c jpg H:MSG4:IR_039:202002240100
+  164  msat --jpg H:MSG4:IR_039:202002240100
+  165  ls -lrt
+  166  display MSG4_unknown_unknown_20200224_0100.jpg
+  167  msat --png H:MSG4:IR_039:202002240100
+  168  ls -lrt
+  169  display MSG4_unknown_unknown_20200224_0100.png
+  170  msat -c MsatGRIB  H:MSG4:IR_039:202002240100
+  171  ls -lrt
+  172  msat -c MsatGRIB  H:MSG4:IR_039:202002240100
+  173  type msat
+  174  rpm -qf /usr/bin/msat
+  175  rpmbuild -ba SP
+  176  cd ..
+  177  rpmbuild -ba SPECS/meteosatlib.spec 
+  178  rpm -Uvh /home/pat1/rpmbuild/RPMS/x86_64/meteosatlib-tools-1.9-1.x86_64.rpm /home/pat1/rpmbuild/RPMS/x86_64/meteosatlib-gdal-1.9-1.x86_64.rpm /home/pat1/rpmbuild/RPMS/x86_64/meteosatlib-1.9-1.x86_64.rpm
+  179  cd BUILD
+  180  ls
+  181  cd meteosatlib-1.9/
+  182  ls
+  183  grep -r "central wavelength unknown" *
+  184  cd msat/
+  185  emacs facts.cpp 
+  186  cd ..
+  187  make
+  188  ls
+  189  cd..
+  190  cd ..
+  191  ls
+  192  tar xvfz ../SOURCES/meteosatlib-1.9.tar.gz meteosatlib-1.9/
+  193  cd ..
+  194  emacs SPECS/meteosatlib.spec 
+  195  rpmbuild -ba SPECS/meteosatlib.spec 
+  196  cd
+  197  git
+  198  cd git
+  199  cd rmap
+  200  cd platformio/test/
+  201  ls
+  202  cd freertos_logging/
+  203  cd test/
+  204  ls
+  205  emacs test_main.cpp 
+  206  pwd
+  207  cd ..
+  208  platformio run   -e nucleo_l43 -t clean
+  209  . ~/.platformio/penv/bin/activate
+  210  platformio run   -e nucleo_l43 -t clean
+  211  platformio run   -e megaatmega2560 -t clean
+  212  platformio test   -e megaatmega2560 
+  213  emacs platformio.ini 
+  214  cd rpmbuild/BUILD/meteosatlib-1.9/
+  215  grep -r "central wavelength unknown" *
+  216  emacs msat/facts.cpp
+  217  cd ..
+  218  cd -
+  219  tar cvfz ../SOURCES/meteosatlib-1.9.tar.gz meteosatlib-1.9/
+  220  cd ..
+  221  emacs SPECS/meteosatlib.spec
+  222  rpmbuild -ba SPECS/meteosatlib.spec
+  223  su -
+  224  sudo bash
+  225  cd BUILD/meteosatlib-1.9/
+  226  grep -r "satellite IDs from" *
+  227  emacs msat/facts.cpp
+  228  cd ..
+  229  tar cvfz ../SOURCES/meteosatlib-1.9.tar.gz meteosatlib-1.9/
+  230  cd ..
+  231  emacs  SPECS/meteosatlib.spec 
+  232  rpmbuild -ba SPECS/meteosatlib.spec
+  233  sudo bash
+  234  cd
+  235  cd dati
+  236  cd lavoro/
+  237  cd satellite/
+  238  ls
+  239  cd autofs/satdata/20200224/
+  240  ls
+  241  mc
+  242  ls
+  243  msat -c MsatGRIB  H:MSG4:IR_039:202002240100
+  244  ls -lrt
+  245  metview
+  246  bg
+  247  cd ..
+  248  mkdir grib
+  249  mv 20200224/*.grib grib/
+  250  ls
+  251  mv sat1.png.1.png sat1.png
+  252  mv sat2.\*.1.png sat2.png
+  253  display sat2.png 
+  254  cd ..
+  255  cd radar/
+  256  ls
+  257  display radar.1.png 
+  258  ssh arpae@test.rmap.cc
+  259  cd
+  260  cd dati/lavoro/
+  261  ls
+  262  cd mkdir skinny
+  263   mkdir skinny
+  264  cd skinny/
+  265  ls
+  266  git clone https://github.com/ARPA-SIMC/skinnywms.git
+  267  ls -lrt
+  268  cd skinnywms/
+  269  ls
+  270  find . -name demo.py 
+  271  python3 demo.py 
+  272  python3 demo.py --path ../../satellite/autofs/satdata/grib/
+  273  emacs /home/pat1/dati/lavoro/skinny/skinnywms/skinnywms/grib_bindings/GribField.py
+  274  bg
+  275  python3 demo.py --path ../../satellite/autofs/satdata/grib/
+  276  git pull
+  277  git stash
+  278  git pull
+  279  python3 demo.py --path ../../satellite/autofs/satdata/grib/
+  280  emacs /home/pat1/dati/lavoro/skinny/skinnywms/skinnywms/grib_bindings/GribField.py
+  281  bg
+  282  python3 demo.py --path ../../satellite/autofs/satdata/grib/
+  283  python3 demo.py --path ../../radar/grib/
+  284  . /etc/profile.d/eccodes-simc.sh
+  285  python3 demo.py --path ../../radar/grib/
+  286  git checkout leaflet-time-dimension
+  287  python3 demo.py --path ../../radar/grib/
+  288  sudo bash
+  289  cd ..
+  290  ls
+  291  cd radar/
+  292  ls
+  293  cd netcdf2grib/
+  294  ls
+  295  emacs netcdf2grib1_cum.f90
+  296  cd ..
+  297  ls
+  298  cd grib/
+  299  ls -lrt
+  300  grib_dump -O radar_SRT_202003262045_1h.grib1|less
+  301  grib_dump radar_SRT_202003262045_1h.grib1|less
+  302  env
+  303  env GRIB_DEFINITION_PATH
+  304  env GRIB_DEFINITION_PATH
+  305  pwd
+  306  cd dati/lavoro/
+  307  ls
+  308  cd skinny/
+  309  ls
+  310  cd skinnywms/
+  311  ls
+  312  python3 demo.py --path ../../radar/grib/
+  313  python3 demo.py --path ../../radar/tmp
+  314  git checkout leaflet-time-dimension
+  315  python3 demo.py --path ../../radar/tmp
+  316  ls -lrt
+  317  python3 demo.py --path ../../radar/tmp
+  318  cd ..
+  319  cd -
+  320  python3 demo.py --path ../../modello/grib/
+  321  python3 demo.py --path ../../modello/tmp/
+  322  python3 demo.py --path ../../radar/grib2/
+  323  metview
+  324  git branch
+  325  python3 demo.py --path ../../radar/grib2/
+  326  metview
+  327  top
+  328  cd ..
+  329  ls
+  330  mkdir modello
+  331  cd modello/
+  332  ls
+  333  mkdir grib
+  334  cd grib/
+  335  mv ~/Scaricati/data data.grib
+  336  top
+  337  cd ..
+  338  mkdir tmp
+  339  cd tmp/
+  340  mv ~/Scaricati/data data.grib
+  341  ls
+  342  grib_dump -O data.grib |less
+  343  ls -l ../../radar/grib/
+  344  ls -l ../../radar/grib/|grep wc
+  345  ls -l ../../radar/grib/| wc
+  346  git pull
+  347  git checkout master
+  348  cd ..
+  349  ls
+  350  cd radar/
+  351  ls
+  352  cd grib
+  353  ls
+  354  cd ..
+  355  mkdir tmp
+  356  cp grib/radar_SRT_2020032612* tmp/
+  357  cd ..
+  358  cd skinny/
+  359  ls
+  360  cd skinnywms/
+  361  ls
+  362  python3 demo.py --path ../../radar/tmp
+  363  ls
+  364  ls -lrt
+  365  pwd
+  366  ls -lrt
+  367  ls
+  368  cd ..
+  369  ls
+  370  cd radar/
+  371  ls -lrt
+  372  ls tmp
+  373  tar cvfz testgrib.tgz tmp/
+  374  ls
+  375  rm testgrib.tgz 
+  376  cd tmp
+  377  ls
+  378  rm radar_SRT_202003261200_1h.grib1  radar_SRT_202003261215_1h.grib1  radar_SRT_202003261230_1h.grib1 
+  379  pwd
+  380  cd ..
+  381  ls
+  382  cd radar/netcdf2grib/
+  383  ls
+  384  emacs netcdf2grib1_cum.f90
+  385  ls
+  386  make
+  387  ./netcdf2grib1_cum ../dati/comp-ACRR_202003261200_001H.nc 
+  388  ls -lrt
+  389  grib_dump -O radar_SRT_202003261200_1h.grib1 
+  390  grib_dump -O radar_SRT_202003261200_1h.grib1 |less
+  391  cd ..
+  392  ls
+  393  mv dati netcdf
+  394  mkdir grib2
+  395  mv netcdf2grib/radar_SRT_202003261200_1h.grib1 grib2/radar_SRT_202003261200_1h.grib2
+  396  pwd
+  397  ls -lrt
+  398  metview
+  399  pwd
+  400  cd grib2/
+  401  ls
+  402  cd ..
+  403  cd netcdf2grib/
+  404  ls
+  405  emacs netcdf2grib1_cum.f90
+  406  make
+  407  cp netcdf2grib1_cum.f90 netcdf2grib2_cum.f90
+  408  emacs netcdf2grib1_cum.f90
+  409  make
+  410  emacs Makefile 
+  411  make
+  412  ls
+  413  emacs netcdf2grib2_cum.f90
+  414  make
+  415  cd ..
+  416  ls
+  417  cd grib2
+  418  ls
+  419  rm radar_SRT_202003261200_1h.grib2 
+  420  for file in ../netcdf/*; do ../netcdf2grib/netcdf2grib2_cum $file; done
+  421  ls
+  422  cd
+  423  cd git
+  424  cd rmap
+  425  ls
+  426  cd platformio/
+  427  ls
+  428  cd test/
+  429  ls
+  430  cd freertos_cpp_queue_semaphore
+  431  platformio run -e nucleo_l476rgg --target upload
+  432  . ~/.platformio/penv/bin/activate
+  433  platformio run -e nucleo_l476rgg --target upload
+  434  platformio run -e megaatmega2560 --target upload
+  435  pio device monitor
+  436  platformio test -e megaatmega2560 
+  437  emacs test/test_main.cpp 
+  438  platformio test -e megaatmega2560 
+  439  emacs test/test_main.cpp 
+  440  pwd
+  441  cd ..
+  442  ls
+  443  cd ..
+  444  cd arduino/sketchbook/libraries/
+  445  ls
+  446  ls -l |grep -i free
+  447  cd FreeRTOS
+  448  ls
+  449  cd src
+  450  ls
+  451  emacs FreeRTOSConfig.h
+  452  emacs FreeRTOSVariant.h
+  453  pwd
+  454  cd ..
+  455  cd platformio/
+  456  ls
+  457  cd test/
+  458  ls
+  459  cd freertos_cpp_queue_semaphore/
+  460  ls
+  461  emacs test/test_main.cpp 
+  462  bg
+  463  platformio test   -e megaatmega2560 
+  464  . ~/.platformio/penv/bin/activate
+  465  platformio test   -e megaatmega2560 
+  466  cd ..
+  467  ls
+  468  cd freertos_logging/
+  469  emacs test/test_main.cpp 
+  470  platformio test   -e megaatmega2560 
+  471  emacs test/test_main.cpp 
+  472  bg
+  473  platformio test   -e megaatmega2560 
+  474  pio device monitor
+  475  meld .
+  476  ls -lrt
+  477  emacs test/test_main.cpp 
+  478  bg
+  479  platformio test   -e megaatmega2560 
+  480  cd ..
+  481  cd arduino/sketchbook/libraries/
+  482  ls -l |grep -i free
+  483  cd FreeRTOS/
+  484  ls
+  485  cd src
+  486  grep xPortGetFreeHeapSize *
+  487  emacs portable.h 
+  488  grep -r PRIVILEGED_FUNCTION *
+  489  emacs Arduino_FreeRTOS.h
+  490  grep -r configINCLUDE_APPLICATION_DEFINED_PRIVILEGED_FUNCTIONS
+  491  ls
+  492  emacs FreeRTOSConfig.h
+  493  bg
+  494  grep configTOTAL_HEAP_SIZE *
+  495  grep -r configTOTAL_HEAP_SIZE *
+  496  ls
+  497  ls heap*
+  498  emacs heap_3.c 
+  499  ls *heap*
+  500  sudo bash
+  501  emacs /home/pat1/git/rmap/python/borinud/utils/source.py
+  502  pwd
+  503  cd testdata/
+  504  ls
+  505  dbamsg export --dsn=sqlite:dballe_report_fixed.sqlite 
+  506  dbadb export --dsn=sqlite:dballe_report_fixed.sqlite 
+  507  dbadb export --dsn=sqlite:dballe_report_fixed.sqlite |dbamsg dump|less
+  508  cd ..
+  509  ./rmapweb run
+  510  ./rmapctrl --syncdb
+  511  rm rmap.sqlite3 
+  512  ./rmapctrl --syncdb
+  513  pwd
+  514  ls -lrt
+  515  git status rmap.cfg 
+  516  meld rmap.cfg 
+  517  ./rmapctrl --syncdb
+  518  ./rmapweb run
+  519  git status .
+  520  ls -lrt /tmp
+  521  ls -lrt
+  522  less rmapweb.log 
+  523  ls -lrt
+  524  ./rmapweb run
+  525  ps axf
+  526  ./rmapweb run
+  527  emacs rmap.cfg 
+  528  git status .
+  529  emacs rmap/settings.py 
+  530  emacs rmap.cfg 
+  531  ls testdata/
+  532  git status  testdata/
+  533  ./rmapweb run
+  534  ls *.log
+  535  rm *.log
+  536  ./rmapweb run
+  537  emacs rmap.cfg 
+  538  ./rmapweb run
+  539  rpm -q rmap
+  540  rpm -q python3-rmap
+  541  ./rmapweb run
+  542  emacs rmap/settings.py 
+  543  ./rmapweb run
+  544  emacs rmap/settings.py 
+  545  ./rmapweb run
+  546  rm *.log
+  547  ./rmapweb run
+  548  ls -lrt
+  549  less rmapweb.log
+  550  emacs /home/pat1/git/rmap/python/borinud/utils/source.py
+  551  ./rmapweb run
+  552  emacs rmap/settings.py 
+  553  bg
+  554  ./rmapweb run
+  555  grep -r SHOWDATA *
+  556  emacs showdata/settings.py
+  557  bg
+  558  emacs showdata/settings.py
+  559  grep -r SHOWDATA *
+  560  meld rmap/settings.py 
+  561  ps axf
+  562  ./rmapweb run
+  563  git status .
+  564  less testdata/arkimet/config
+  565  grep -r BORINUD *
+  566  emacs rmapweb
+  567  ./rmapweb run
+  568  emacs rmap.cfg 
+  569  ls cache/
+  570  rm -rf cache/
+  571  ./rmapweb run
+  572  cd
+  573  cd git
+  574  cd rmap
+  575  git pull
+  576  cd python
+  577  cd showdata/
+  578  ls -lrt
+  579  cd templates/showdata/
+  580  ls
+  581  emacs spatialseries.html 
+  582  cd
+  583  cd dati/lavoro
+  584  ls
+  585  cd skinny/
+  586  ls
+  587  cd skinnywms/
+  588  ls
+  589  python3 demo.py ../../modello/cosmo_test.grib2 
+  590  python3 demo.py --path ../../modello/cosmo_test.grib2 
+  591  ls
+  592  emacs demo.py 
+  593  less README.md 
+  594  python3 demo.py --path ../../modello/cosmo_test.grib2 
+  595  cd
+  596  arduino
+  597  cd ..
+  598  cd arduino/sketchbook/
+  599  ls
+  600  mv EspSoftwareSerial libraries/
+  601  mv Rmap libraries/
+  602  ls
+  603  ls tools/
+  604  ls
+  605  meld FreeRTOS libraries/FreeRTOS/
+  606  cd git
+  607  cd rmap
+  608  cd platformio/
+  609  cd test/
+  610  ls
+  611  platformio run -e megaatmega2560 --target upload
+  612  cd freertos_sensordriver
+  613  . ~/.platformio/penv/bin/activate
+  614  platformio run -e megaatmega2560 --target upload
+  615  ù
+  616  emacs platformio.ini 
+  617  platformio run -e megaatmega2560 --target upload
+  618  emacs platformio.ini 
+  619  platformio run -e megaatmega2560 --target upload
+  620  emacs platformio.ini 
+  621  platformio run -e megaatmega2560 --target upload
+  622  emacs platformio.ini 
+  623  platformio run -e megaatmega2560 --target upload
+  624  emacs platformio.ini 
+  625  platformio run -e megaatmega2560 --target upload
+  626  platformio run -e megaatmega2560 --target clean
+  627  platformio run -e megaatmega2560 --target upload
+  628  emacs platformio.ini 
+  629  platformio run -e megaatmega2560 --target upload
+  630  platformio run -e megaatmega2560 --target clean
+  631  platformio run -e megaatmega2560 --target upload
+  632  emacs platformio.ini 
+  633  platformio run -e megaatmega2560 --target upload
+  634  pio device monitor
+  635  emacs platformio.ini 
+  636  cd ..
+  637  ls
+  638  cd freertos_logging/
+  639  platformio run -e megaatmega2560 --target upload
+  640  cd ..
+  641  ls
+  642  cd freertos_cpp_queue_semaphore/
+  643  platformio run -e megaatmega2560 --target upload
+  644  pwd
+  645  cd ..
+  646  meld .
+  647  cd ..
+  648  cd arduino/
+  649  ls
+  650  cd sketchbook/
+  651  git status .
+  652  grep -ri freeram *
+  653  cd ..
+  654  cd platformio/
+  655  ls
+  656  cd test/
+  657  ls
+  658  cd freertos_logging/
+  659  ls
+  660  emacs test/test_main.cpp 
+  661  bg
+  662  platformio test -e megaatmega2560 
+  663  cd ..
+  664  cd freertos_cpp_queue_semaphore/
+  665  ls
+  666  platformio test -e megaatmega2560 
+  667  emacs test/test_main.cpp 
+  668  platformio test -e megaatmega2560 
+  669  emacs test/test_main.cpp 
+  670  platformio test -e megaatmega2560 
+  671  emacs test/test_main.cpp 
+  672  platformio test -e megaatmega2560 
+  673  emacs test/test_main.cpp 
+  674  bg
+  675  platformio test -e megaatmega2560 
+  676  emacs test/test_main.cpp 
+  677  bg
+  678  platformio test -e megaatmega2560 
+  679  platformio test -e megaatmega2560 j
+  680  platformio test -e megaatmega2560j
+  681  platformio test -e nucleo_l476rg
+  682  cd ..
+  683  ls
+  684  cd freertos_logging/
+  685  ls
+  686  emacs test/test_main.cpp 
+  687  bg
+  688  platformio test -e megaatmega2560
+  689  pwd
+  690  cd tmp
+  691  cd ..
+  692  ls
+  693  cp -r sensordriver freertos_c_simple 
+  694  cp ../../arduino/sketchbook/rtos/test_freertos/test_freertos.ino freertos_c_simple/src/
+  695  rm freertos_c_simple/src/freertos_sensordriver.ino*
+  696  cd freertos_c_simple/
+  697  emacs src/test_freertos.ino 
+  698  bg
+  699  platformio test -e megaatmega2560
+  700  platformio run  -e megaatmega2560 -t upload
+  701  picocom -b 115200 /dev/ttyACM0 
+  702  platformio run  -e megaatmega2560 -t upload
+  703  platformio run  -e megaatmega2560 -t clean
+  704  platformio run  -e megaatmega2560 -t upload
+  705  platformio run  -e megaatmega2560 -t clean
+  706  platformio run  -e megaatmega2560 -t upload
+  707  platformio run  -e megaatmega2560 -t upload -v
+  708  picocom -b 115200 /dev/ttyACM0 
+  709  platformio run  -e megaatmega2560 -t upload -v
+  710  picocom -b 115200 /dev/ttyACM0 
+  711  platformio run  -e megaatmega2560 -t upload -v
+  712  picocom -b 115200 /dev/ttyACM0 
+  713  platformio run  -e megaatmega2560 -t upload -v
+  714  picocom -b 115200 /dev/ttyACM0 
+  715  platformio run  -e megaatmega2560 -t upload -v
+  716  picocom -b 115200 /dev/ttyACM0 
+  717  cd ..
+  718  cd arduino/sketchbook/libraries/
+  719  mv FreeRTOS/ ..
+  720  cd ..
+  721  cd platformio/test/
+  722  ls
+  723  cd freertos_c_simple/
+  724  platformio run  -e megaatmega2560 -t upload -v
+  725  platformio lib search freertos
+  726  arduino
+  727  platformio run  -e megaatmega2560 -t upload -v
+  728  picocom -b 115200 /dev/ttyACM0 
+  729  emacs platformio.ini
+  730  platformio run  -e megaatmega2560 -t upload -v
+  731  platformio run  -e megaatmega2560 -t clean
+  732  platformio run  -e megaatmega2560 -t upload -v
+  733  picocom -b 115200 /dev/ttyACM0 
+  734  pwd
+  735  cd ..
+  736  ls
+  737  cd freertos_logging
+  738  ls
+  739  emacs platformio.ini ../freertos_c_simple/platformio.ini
+  740  emacs platformio.ini
+  741  emacs platformio.ini ../freertos_c_simple/platformio.ini
+  742  platformio run  -e megaatmega2560 -t upload -v
+  743  pio device monitor
+  744  platformio test  -e megaatmega2560 
+  745  emacs platformio.ini 
+  746  emacs test/test_main.cpp 
+  747  bg
+  748  platformio test  -e megaatmega2560 
+  749  platformio test  -e megaatmega644
+  750  platformio test  -e 644pa16m
+  751  cd ..
+  752  ls
+  753  git status .
+  754  alsamixer
+  755  pwd
+  756  cd
+  757  cd git
+  758  cd rmap
+  759  cd python
+  760  cd showdata/
+  761  emacs templates/showdata/spatialseries.html 
+  762  qjackctl 
+  763  cd
+  764  cd git
+  765  cd rmap
+  766  cd python
+  767  ./rmapweb run
+  768  krm -rf cache/
+  769  rm -rf cache/
+  770  ./rmapweb run
+  771  rm -rf cache/
+  772  ./rmapweb run
+  773  rm -rf cache/
+  774  ./rmapweb run
+  775  rm -rf cache/
+  776  ./rmapweb run
+  777  rm -rf cache/
+  778  ./rmapweb run
+  779  rm -rf cache/
+  780  ./rmapweb run
+  781  rm -rf cache/
+  782  ./rmapweb run
+  783  rm -rf cache/
+  784  ./rmapweb run
+  785  jack_control 
+  786  cd
+  787  cd dati/lavoro/
+  788  ls
+  789  cd skinny/
+  790  ls
+  791  cd skinnywms/
+  792  ls
+  793  git branch
+  794  ls
+  795  python3 demo.py --path ../../modello/cosmo_test.grib2 
+  796  cd
+  797  cd dati/
+  798  cd lavoro/
+  799  ls
+  800  cd satellite/
+  801  ls
+  802  cd autofs/satdata/
+  803  ls ~/Scaricati/20200127\(1\).zip 
+  804  mkdir 20200127
+  805  cd 20200127
+  806  unzip  ~/Scaricati/20200127\(1\).zip 
+  807  ls
+  808  mc autofs/satdata/20200127/* .
+  809  mv autofs/satdata/20200127/* .
+  810  rm -rf autofs/
+  811  ls
+  812  cd ..
+  813  ls
+  814  cd ..
+  815  mc autofs/satdata/ .
+  816  mv autofs/satdata/ .
+  817  mv autofs/satdata .
+  818  cd..
+  819  cd ..
+  820  mv autofs/satdata .
+  821  ls
+  822  rmdir satdata/
+  823  rmdir autofs/
+  824  ls
+  825  msat -c MsatGRIB  H:MSG4:IR_039:202001271200
+  826  ls
+  827  cd satdata/20200127/
+  828  ls
+  829  msat -c MsatGRIB  H:MSG4:IR_039:202001271200
+  830  ls
+  831  msat -c MsatGRIB  H:MSG4:IR_039:202001270800
+  832  msat -c MsatGRIB  H:MSG4:VIS_008:202001270800
+  833  msat -c MsatGRIB  H:MSG4:IR_108:202001270800
+  834  msat -c MsatGRIB  H:MSG2:IR_108:202001270800
+  835  ls -lrt
+  836  cd ..
+  837  mkdir 20200223
+  838  cd 20200223
+  839  ls
+  840  unzip  ~/Scaricati/20200223.zip 
+  841  ls
+  842  mv autofs/satdata/20200223/* .
+  843  rmdir autofs/satdata/20200223/
+  844  rmdir autofs/satdata/
+  845  rmdir autofs
+  846  ls
+  847  msat -c MsatGRIB  H:MSG4:IR_120:202002231200
+  848  msat -c MsatGRIB  H:MSG4:VIS_008:202002231200
+  849  msat -c MsatGRIB  H:MSG4:VI_008:202002231200
+  850  msat -c MsatGRIB  H:MSG4:VIS008:202002231200
+  851  ls -lrt
+  852  ls *.grib
+  853  msat -c MsatGRIB  H:MSG4:VIS008:202002231200 
+  854  mv *.grib ../grib/MSG4_VIS008_20200223_1200.grib
+  855  msat -c MsatGRIB  H:MSG4:IR_120:202002231200
+  856  ls -lrt
+  857  mv MSG4_unknown_unknown_20200223_1200.grib ../grib/MSG4_IR_120_20200223_1200.grib
+  858  cd ..
+  859  ls -lrt
+  860  cd ..
+  861  cd grib
+  862  ls
+  863  cd satdata/
+  864  ls
+  865  cd grib/
+  866  ls
+  867  metview
+  868  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60 -of 
+  869  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60 -of /mydatapath/H:MSG4:HRV:202002271200 something.gtiff
+  870  man gdalwarp
+  871  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  /mydatapath/H:MSG4:HRV:202002271200 something.gtiff
+  872  ls -lrt
+  873  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  ../20200223/H:MSG4:HRV:202002271200 something.gtiff
+  874  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  ../20200223/H:MSG4:HRV:202002231200 something.gtiff
+  875  cd ..
+  876  ls
+  877  cd 20200223
+  878  ls
+  879  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 something.gtiff
+  880  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 
+  881  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 something.geotiff
+  882  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 something.png
+  883  ls -lrt
+  884  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 something.png|less
+  885  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 something.GTiff
+  886  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 something.png|less
+  887  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 something.PDF
+  888  ls -lrt
+  889  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 something.pdf
+  890  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 something
+  891  ls -lrt
+  892  display something 
+  893  info something
+  894  type something
+  895  less something
+  896  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 something.png
+  897  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 something.bmp
+  898  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 something.netCDF
+  899  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 something.netcdf
+  900  ls -lrt
+  901  locate products
+  902  /home/pat1/rpmbuild/BUILD/meteosatlib-1.9/examples/products
+  903  /home/pat1/rpmbuild/BUILD/meteosatlib-1.9/examples/products -t 202002231200 -s . --shp ~/myshp/worldboundaries.shp -d /tmp/products/ --warp='-t_srs "+proj=latlong" -te -10 30 30 60' --cachedir=/tmp/products/cache/
+  904  /home/pat1/rpmbuild/BUILD/meteosatlib-1.9/examples/products -t 202002231200 -s .  -d /tmp/products/ --warp='-t_srs "+proj=latlong" -te -10 30 30 60' --cachedir=/tmp/products/cache/
+  905  less /home/pat1/rpmbuild/BUILD/meteosatlib-1.9/examples/products
+  906  locate cosmo
+  907  less /home/pat1/dati/lavoro/satellite/cosmo2vapor
+  908  /usr/share/doc/meteosatlib-gdal/products
+  909  /usr/share/doc/meteosatlib-gdal/products  -t 202002231200 -s .  -d /tmp/products/ --warp='-t_srs "+proj=latlong" -te -10 30 30 60' --cachedir=/tmp/products/cache/
+  910  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 something.netcdf
+  911  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 -of something.netcdf
+  912  man gdalwarp
+  913  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 -of netcdf something.netcdf
+  914  ls -lrt
+  915  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 -of pdf something.pdf
+  916  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 -of png something.png
+  917  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 -of GTiff something.GTiff
+  918  ls -lrt
+  919  display something.GTiff
+  920  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 -of GTiff something.GTiff
+  921  ls something*
+  922  rm something*
+  923  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 -of GTiff something.GTiff
+  924  display something.GTiff 
+  925  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 -of tiff something.tiff
+  926  ls -lrt
+  927  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 -of tiff something.tiff
+  928  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 -of netCDF something.netCDF
+  929  ls -lrt
+  930  ncdump something.netCDF|less
+  931  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 -of tiff something.tiff
+  932  gdalwarp -t_srs "+proj=latlong" -te -10 30 30 60  H:MSG4:WV_073:202002231200 -of ENVI something.envi
+  933  ls -lrt
+  934  less something.hdr
+  935  ls -lrt
+  936  qgis something.GTiff
+  937  cd ..
+  938  ls
+  939  cd ..
+  940  ls
+  941  cd skinny/
+  942  ls -lrt
+  943  ls
+  944  cd skinnywms/
+  945  ls
+  946  git branch
+  947  ls -lrt
+  948  git status .
+  949  meld skinnywms/grib_bindings/GribField.py
+  950  ls
+  951  ./demo.py --path /home/pat1/dati/lavoro/satellite/satdata/grib
+  952  ./demo.py --path /home/pat1/dati/lavoro/satellite/satdata/grib/tmp
+  953  git status .
+  954  meld .
+  955  sudo bash
+  956  cd ..
+  957  ls
+  958  cd skinnywms/
+  959  ls
+  960  cd ..
+  961  cd satellite/
+  962  ls
+  963  cd satdata/
+  964  ls
+  965  cd grib/
+  966  ls
+  967  grib_dump MSG4_VIS008_20200223_1200.grib|less
+  968  man grib_dump
+  969  grib_dump -
+  970  grib_dump -a MSG4_VIS008_20200223_1200.grib|less
+  971  grib_dump -a MSG4_VIS008_20200223_1200.grib|grep numberOfDataPoints
+  972  grib_dump -a MSG4_VIS008_20200223_1200.grib|grep latitudeOfFirstGridPointInDegrees
+  973  grib_dump -a MSG4_VIS008_20200223_1200.grib|less
+  974  grib_dump -a MSG4_VIS008_20200223_1200.grib|grep Nj
+  975  pwd
+  976  ls
+  977  emacs /home/pat1/dati/lavoro/skinny/skinnywms/skinnywms/grib_bindings/GribField.py
+  978  emacs /home/pat1/dati/lavoro/skinny/skinnywms/skinnywms/fields/GRIBField.py
+  979  bg
+  980  grib_dump -a MSG4_VIS008_20200223_1200.grib|grep -i shortname
+  981  grib_dump -a MSG4_VIS008_20200223_1200.grib|grep -i levtype
+  982  emacs /home/pat1/dati/lavoro/skinny/skinnywms/skinnywms/grib_bindings/GribField.py
+  983  emacs /home/pat1/dati/lavoro/skinny/skinnywms/skinnywms/fields/GRIBField.py
+  984  emacs /home/pat1/dati/lavoro/skinny/skinnywms/skinnywms/grib_bindings/GribField.py
+  985  ls
+  986  mv mkdir tmp
+  987  mkdir tmp
+  988  cp MSG4_VIS008_20200223_1200.grib tmp
+  989  emacs /home/pat1/dati/lavoro/skinny/skinnywms/skinnywms/fields/GRIBField.py
+  990* 
+  991  emacs /home/pat1/dati/lavoro/skinny/skinnywms/skinnywms/fields/GRIBField.py
+  992  emacs /home/pat1/dati/lavoro/skinny/skinnywms/skinnywms/grib_bindings/GribField.py
+  993  emacs /home/pat1/dati/lavoro/skinny/skinnywms/skinnywms/fields/GRIBField.py
+  994  emacs /home/pat1/dati/lavoro/skinny/skinnywms/skinnywms/grib_bindings/GribField.py
+  995  rpm -q python3-django
+  996  rpm -q flask
+  997  rpm -q python3-flask
+  998  emacs tmp.txt
+  999  cd
+ 1000  cd dati/lavoro/
+ 1001  ls -lrt
+ 1002  mkdir qc_sample_data
+ 1003  mc
+ 1004  msat -c MsatGRIB  H:MSG4:IR_120:202002231200
+ 1005  ls -lrt
+ 1006  msat -c MsatGRIB  H:MSG4:HRV:202002231200
+ 1007  msat -c MsatGRIB  H:MSG4:HRV:202002231100
+ 1008  msat -c MsatGRIB  H:MSG4:HRV:202002231300
+ 1009  msat -c MsatGRIB  H:MSG4:IR016:202002231100
+ 1010  msat -c MsatGRIB  H:MSG4:IR_016:202002231100
+ 1011  msat -c MsatGRIB  H:MSG4:IR_016:202002231200
+ 1012  msat -c MsatGRIB  H:MSG4:IR_016:202002231300
+ 1013  msat -c MsatGRIB  H:MSG4:IR_039:202002231100
+ 1014  msat -c MsatGRIB  H:MSG4:IR_039:202002231200
+ 1015  msat -c MsatGRIB  H:MSG4:IR_039:202002231300
+ 1016  msat -c MsatGRIB  H:MSG4:IR_087:202002231100
+ 1017  msat -c MsatGRIB  H:MSG4:IR_087:202002231200
+ 1018  msat -c MsatGRIB  H:MSG4:IR_087:202002231300
+ 1019  msat -c MsatGRIB  H:MSG4:IR_097:202002231100
+ 1020  msat -c MsatGRIB  H:MSG4:IR_097:202002231200
+ 1021  msat -c MsatGRIB  H:MSG4:IR_097:202002231300
+ 1022  msat -c MsatGRIB  H:MSG4:IR_108:202002231100
+ 1023  msat -c MsatGRIB  H:MSG4:IR_108:202002231200
+ 1024* msat -c MsatGRIB  H:MSG4:IR_108:20200223100
+ 1025  msat -c MsatGRIB  H:MSG4:IR_120:202002231100
+ 1026  msat -c MsatGRIB  H:MSG4:IR_120:202002231200
+ 1027  msat -c MsatGRIB  H:MSG4:IR_120:202002231300
+ 1028  msat -c MsatGRIB  H:MSG4:IR_134:202002231100
+ 1029  msat -c MsatGRIB  H:MSG4:IR_134:202002231200
+ 1030  msat -c MsatGRIB  H:MSG4:IR_134:202002231300
+ 1031  msat -c MsatGRIB  H:MSG4:VIS006:202002231100
+ 1032  msat -c MsatGRIB  H:MSG4:VIS006:202002231200
+ 1033  msat -c MsatGRIB  H:MSG4:VIS006:202002231300
+ 1034  msat -c MsatGRIB  H:MSG4:VIS008:202002231100
+ 1035  msat -c MsatGRIB  H:MSG4:VIS008:202002231200
+ 1036  msat -c MsatGRIB  H:MSG4:VIS008:202002231300
+ 1037  msat -c MsatGRIB  H:MSG4:WV_062:202002231100
+ 1038  msat -c MsatGRIB  H:MSG4:WV_062:202002231200
+ 1039  msat -c MsatGRIB  H:MSG4:WV_062:202002231300
+ 1040  msat -c MsatGRIB  H:MSG4:WV_073:202002231100
+ 1041  msat -c MsatGRIB  H:MSG4:WV_073:202002231200
+ 1042  msat -c MsatGRIB  H:MSG4:WV_073:202002231300
+ 1043  ls -lrt
+ 1044  rm *.grim
+ 1045  rm *.grib
+ 1046  history > hrit2grib.sh

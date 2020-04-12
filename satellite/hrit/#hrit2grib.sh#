@@ -1,0 +1,76 @@
+msat -c MsatGRIB  H:MSG4:IR_016:202002231100
+msat -c MsatGRIB  H:MSG4:IR_016:202002231200
+msat -c MsatGRIB  H:MSG4:IR_016:202002231300
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_IR_016_20200223_1100.grib
+mv unknown_unknown_20200223_1200.grib ../grib/MSG4_IR_016_20200223_1200.grib
+mv unknown_unknown_20200223_1300.grib ../grib/MSG4_IR_016_20200223_1300.grib
+
+msat -c MsatGRIB  H:MSG4:IR_039:202002231100
+msat -c MsatGRIB  H:MSG4:IR_039:202002231200
+msat -c MsatGRIB  H:MSG4:IR_039:202002231300
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_IR_039_20200223_1100.grib
+mv unknown_unknown_20200223_1200.grib ../grib/MSG4_IR_039_20200223_1200.grib
+mv unknown_unknown_20200223_1300.grib ../grib/MSG4_IR_039_20200223_1300.grib
+
+msat -c MsatGRIB  H:MSG4:IR_087:202002231100
+msat -c MsatGRIB  H:MSG4:IR_087:202002231200
+msat -c MsatGRIB  H:MSG4:IR_087:202002231300
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_IR_087_20200223_1100.grib
+mv unknown_unknown_20200223_1200.grib ../grib/MSG4_IR_087_20200223_1200.grib
+mv unknown_unknown_20200223_100.grib ../grib/MSG4_IR_087_20200223_1300.grib
+
+msat -c MsatGRIB  H:MSG4:IR_097:202002231100
+msat -c MsatGRIB  H:MSG4:IR_097:202002231200
+msat -c MsatGRIB  H:MSG4:IR_097:202002231300
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_IR_097_20200223_1100.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_IR_097_20200223_1200.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_IR_097_20200223_1300.grib
+
+msat -c MsatGRIB  H:MSG4:IR_108:202002231100
+msat -c MsatGRIB  H:MSG4:IR_108:202002231200
+msat -c MsatGRIB  H:MSG4:IR_108:202002231300
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_IR_108_20200223_1100.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_IR_108_20200223_1200.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_IR_108_20200223_1300.grib
+
+msat -c MsatGRIB  H:MSG4:IR_120:202002231100
+msat -c MsatGRIB  H:MSG4:IR_120:202002231200
+msat -c MsatGRIB  H:MSG4:IR_120:202002231300
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_IR_120_20200223_1100.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_IR_120_20200223_1200.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_IR_120_20200223_1300.grib
+
+msat -c MsatGRIB  H:MSG4:IR_134:202002231100
+msat -c MsatGRIB  H:MSG4:IR_134:202002231200
+msat -c MsatGRIB  H:MSG4:IR_134:202002231300
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_IR_134_20200223_1100.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_IR_134_20200223_1200.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_IR_134_20200223_1300.grib
+
+msat -c MsatGRIB  H:MSG4:VIS006:202002231100
+msat -c MsatGRIB  H:MSG4:VIS006:202002231200
+msat -c MsatGRIB  H:MSG4:VIS006:202002231300
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_VIS006_20200223_1100.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_VIS006_20200223_1200.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_VIS006_20200223_1300.grib
+
+msat -c MsatGRIB  H:MSG4:VIS008:202002231100
+msat -c MsatGRIB  H:MSG4:VIS008:202002231200
+msat -c MsatGRIB  H:MSG4:VIS008:202002231300
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_VIS008_20200223_1100.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_VIS008_20200223_1200.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_VIS008_20200223_1300.grib
+
+msat -c MsatGRIB  H:MSG4:WV_062:202002231100
+msat -c MsatGRIB  H:MSG4:WV_062:202002231200
+msat -c MsatGRIB  H:MSG4:WV_062:202002231300
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_WV_062_20200223_1100.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_WV_062_20200223_1200.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_WV_062_20200223_1300.grib
+
+msat -c MsatGRIB  H:MSG4:WV_073:202002231100
+msat -c MsatGRIB  H:MSG4:WV_073:202002231200
+msat -c MsatGRIB  H:MSG4:WV_073:202002231300
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_WV_073_20200223_1100.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_WV_073_20200223_1200.grib
+mv unknown_unknown_20200223_1100.grib ../grib/MSG4_WV_073_20200223_1300.grib

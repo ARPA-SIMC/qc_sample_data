@@ -1,0 +1,58 @@
+/*
+ *    Copyright (C) 2020  ARPA-SIM <urpsim@smr.arpa.emr.it>
+ *
+ *    netcdf2grib is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    neycdf2grib is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this software; if not, write to the Free Software
+ *    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ *      Main program
+ */
+
+
+
+Questo programma converte i file netcdf contenenti la precipitazione cumulata,
+cosi' come codificati dall'uscita del programma IDL, in grib1 o grib2.
+
+Per compilarlo lanciare il Makefile
+> make
+
+Per eseguirlo
+> netcdf2grib1_cum filenetcdf
+
+In autonomia il programma controlla:
+- che tutti campi richiesti siano nel netcdf;
+- che le cumulate siano in ore;
+- che l'unita' di misura sia 'mm'.
+
+Il periodo di cumulazione 'ACC_T' viene letto direttamente dagli attributi 
+della variabile cum_pr_mm.
+
+Output: radar_SRT_AAAAMMGGhhmm_'ACC_T'h.grib1
+con:
+- AAAAMMGGhhmm: data e ora di fine cumulazione
+- ACC_T: n. ore di cumulazione
+
+
+Stesse funzionalità per il grib2 con eseguibile  netcdf2grib2_cum
+
+------------------------------------------------------------------------------
+Il grib in output è un grigliato regolare lat/lon, la cumulata risulta
+un'analisi con data di emissione pari alla fine della cumulata.
+
+Per verificare il numero di ore di cumulazione conviene controllare
+direttamente nel grib con:
+
+> grib_dump -O filegrib
+
+- la variabile P1 deve essere 0
+- la variabile P2 e' il numero di ore di cumulazione
