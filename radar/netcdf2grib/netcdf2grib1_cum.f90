@@ -173,7 +173,7 @@ call check( nf90_get_att(ncid,varid_pr,"units"       ,pr_units) )
 call check( nf90_get_att(ncid,varid_pr,"accum_time_h",acc_t   ) )
 
 ! Verifico che l'unita' di misura sia 'mm':
-! Per una qualche ragione non chiara c'è un carattere nullo nella lettura
+! Per una qualche ragione non chiara c'Ã¨ un carattere nullo nella lettura
 ! di pr_units che non viene eliminato dalla funzione TRIM. Elimino il
 ! problema con un trucco
 !allocate(character(len(trim(pr_units))-1) :: unpr) 
@@ -214,7 +214,7 @@ gaid_template=grid_id_new(grib_api_template="regular_ll_sfc_grib1")
 call init(date_time,year=date(1),month=date(2),day=date(3),&
   hour=hour(1),minute=hour(2),msec=00)
 ! Timerange locale SIMC di analisi di precipitazione
-call init(timerange,timerange=1,p1=0,p2=int(acc_t*60))
+call init(timerange,timerange=1,p1=0,p2=int(acc_t*3600))
 ! Livelli 
 call init(level, level1=1, l1=0, level2=imiss, l2=imiss)
 ! Variabile precipitazione 
